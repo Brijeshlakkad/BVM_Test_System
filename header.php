@@ -37,21 +37,14 @@
 									<input placeholder="Search" type="search" class="gn-search">
 									<a class="gn-icon gn-icon-search"><span>Search</span></a>
 								</li>
-								<li>
-									<a class="gn-icon gn-icon-download">Downloads</a>
-									<ul class="gn-submenu">
-										<li><a class="gn-icon gn-icon-illustrator">Vector Illustrations</a></li>
-										<li><a class="gn-icon gn-icon-photoshop">Photoshop files</a></li>
-									</ul>
-								</li>
-								<li><a class="gn-icon gn-icon-cog">Settings</a></li>
+								<li><a class="gn-icon glyphicon-envelope">Contact us</a></li>
 								<li><a class="gn-icon gn-icon-help">Help</a></li>
 								<li>
 									<a class="gn-icon gn-icon-archive">Archives</a>
 									<ul class="gn-submenu">
-										<li><a class="gn-icon gn-icon-article">Articles</a></li>
-										<li><a class="gn-icon gn-icon-pictures">Images</a></li>
-										<li><a class="gn-icon gn-icon-videos">Videos</a></li>
+										<li><a class="gn-icon gn-icon-article">A1</a></li>
+										<li><a class="gn-icon gn-icon-pictures">A2</a></li>
+										<li><a class="gn-icon gn-icon-videos">A3</a></li>
 									</ul>
 								</li>
 							</ul>
@@ -60,11 +53,8 @@
 				</li>
 				<li></li>
 				<li></li>
-				<li></li>
+				<li style="float:right"><a href="login.php">Login</a></li>
 			</ul>
-			<header>
-				<h1><a href="www.bvmengineering.ac.in" target="_blank">BVM</a> <b style="color:rgba(8,22,83,1)">Test System</b></h1>
-			</header>
 		</div>
 		<script src="js/classie.js"></script>
 		<script src="js/gnmenu.js"></script>
