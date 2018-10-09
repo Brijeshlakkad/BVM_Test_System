@@ -1,0 +1,1 @@
+insert into students(student_idno,student_fname,student_lname,student_email,student_mobile_no,student_password) VALUES('15IT051','Brijesh','Lakkad','brijeshlakkad22@gmail.com','7046167267','123456bB');
