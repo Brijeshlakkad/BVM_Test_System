@@ -48,7 +48,7 @@ function check_pages()
 	}
 	if(isset($_SESSION['Userid']))
 	{
-		if($filename=="profile.php" || $filename=="contact.php" || $filename=="profile_details.php" || $filename=="jon_snow.php")
+		if($filename=="profile.php" || $filename=="contact.php")
 		{
 
 		}
@@ -59,7 +59,7 @@ function check_pages()
 	}
 	if(isset($_SESSION['Adminid']))
 	{
-		if($filename=="admin.php" || $filename=="admin_panel.php" || $filename=="logout.php" || $filename=="customer_profile.php")
+		if($filename=="admin.php" || $filename=="admin_panel.php")
 		{
 
 		}

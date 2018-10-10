@@ -25,10 +25,20 @@
 	font-family:"alfa-slab-one";
 	font-size: 30px;
 }
-.my_well
+.my_well_1
 {
-	margin-top: 50px;
-	margin: 20px;
+	margin: 79px;
+  padding: 20px;
+  font-family:serif;
+  font-size: 21px;
+  background-color:rgba(8,22,83,0.3)
+}
+.my_well_2
+{
+	margin: 79px;
+  padding: 20px;
+  font-size: 21px;
+  background-color:rgba(8,22,83,0.3)
 }
 .blurclass
 {
@@ -51,7 +61,7 @@
 	-ms-filter: blur(5px);
 	filter: blur(5px);
 }
-.customerTable td{
+.customTable td{
 	margin: 30px;
 	padding: 30px;
 }

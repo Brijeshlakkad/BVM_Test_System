@@ -10,14 +10,13 @@
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
 		<meta name="author" content="Brijesh Lakkad" />
-		<link rel="shortcut icon" href="../favicon.ico">
 		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
-		<link rel="stylesheet" type="text/css" href="css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="css/gn_demo.css" />
 		<link rel="stylesheet" type="text/css" href="css/component.css" />
 		<script src="js/modernizr.custom.js"></script>
 
 		<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-		<link href="css/custom.css" rel="stylesheet" media="screen">
+		<link href="css/custom2.css" rel="stylesheet" media="screen">
 		<link rel="stylesheet" href="css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="css/please_wait.css" />
 		<script src="js/jquery.min.js"></script>
@@ -26,7 +25,7 @@
 		<script type="text/javascript" src="js/bootstrap-show-password.min.js"></script>
 	</head>
 	<body>
-		<div class="container">
+		<div class="gn_container">
 			<ul id="gn-menu" class="gn-menu-main">
 				<li class="gn-trigger">
 					<a class="gn-icon gn-icon-menu"><span>Menu</span></a>
