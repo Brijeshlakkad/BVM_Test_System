@@ -1,7 +1,35 @@
-<?php include("header.php"); ?>
+<?php
+include_once("functions.php");
+check_pages();
+?>
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>BVM Test System</title>
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<meta name="author" content="Brijesh Lakkad" />
+		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="css/gn_demo.css" />
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+		<script src="js/modernizr.custom.js"></script>
+
+		<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+		<link href="css/custom2.css" rel="stylesheet" media="screen">
+		<link rel="stylesheet" href="css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="css/please_wait.css" />
+		<script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/angular.js"></script>
+		<script type="text/javascript" src="js/bootstrap-show-password.min.js"></script>
+	</head>
+	<body>
 <div class="container well login_block" align="center">
 	<div class="row">
-	<div class="container" style="margin-top:45px;"><caption>
+	<div class="gn_container" style="margin-top:45px;"><caption>
 			<a href="index.php" style="text-decoration:none;">
 		    <h1><span>BVM</span> <b style="color:rgba(8,22,83,1)">Test System</b></h1>
 		</a>

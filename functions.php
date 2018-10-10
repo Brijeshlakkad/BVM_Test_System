@@ -48,9 +48,9 @@ function check_pages()
 	}
 	if(isset($_SESSION['Userid']))
 	{
-		if($filename=="profile.php" || $filename=="contact.php")
+		if($filename=="profile.php" || $filename=="contact.php" || $filename="login.php")
 		{
-
+			return;
 		}
 		else{
 			session_destroy();
@@ -61,7 +61,7 @@ function check_pages()
 	{
 		if($filename=="admin.php" || $filename=="admin_panel.php")
 		{
-
+			return;
 		}
 		else {
 			session_destroy();

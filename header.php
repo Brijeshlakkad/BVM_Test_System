@@ -1,5 +1,7 @@
-<?php include("functions.php"); ?>
-<?php check_pages(); ?>
+<?php
+include_once("functions.php");
+check_pages();
+?>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 	<head>
