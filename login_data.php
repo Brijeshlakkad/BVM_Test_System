@@ -5,9 +5,13 @@ $type=protect_anything($_POST['l_type']);
 if($type=="f_")
 {
 	$table_name="faculty";
+	$redirect_page="faculty_panel.php";
+	$session_name="Facultyid";
 }
 else {
 	$table_name="students";
+	$redirect_page="student_profile.php";
+	$session_name="Studentid";
 }
 $email_field=$type."email";
 $password_field=$type."password";
@@ -19,8 +23,8 @@ $r=mysqli_num_rows($result);
 $row=mysqli_fetch_assoc($result);
 if($r==1)
 {
-	$_SESSION['Userid']=$row['student_email'];
-	echo "1";
+	$_SESSION[$session_name.""]=$row[$email_field.""];
+	echo "11".$redirect_page;
 	return;
 }
 else

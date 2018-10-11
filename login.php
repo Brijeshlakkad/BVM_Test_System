@@ -116,11 +116,11 @@ include_once("links.php");
 												}).then(function mySuccess(response) {
 													flag = response.data;
 													// we should be using flag in only this block so logic in following
-													if(flag!=0)
+													if(flag.startsWith("11"))
 													{
 														$scope.l_status_0=false;
 														$scope.l_status_1=true;
-														document.location="profile.php";
+														document.location=flag.substr(2);
 													}
 													else
 													{

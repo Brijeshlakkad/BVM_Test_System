@@ -8,14 +8,14 @@ function protect_anything($str)
 }
 function check_session()
 {
-	if((!isset($_SESSION['Userid'])) && (!isset($_SESSION['Adminid'])))
+	if((!isset($_SESSION['Studentid'])) && (!isset($_SESSION['Adminid'])) && (!isset($_SESSION['Facultid'])))
 	{
 		header("Location:index.php");
 	}
 }
 function is_logged_in()
 {
-	if(isset($_SESSION['Userid']))
+	if(isset($_SESSION['Studentid']))
 	{
 		return true;
 	}
@@ -40,15 +40,26 @@ function check_pages()
 	$filename=basename($_SERVER['PHP_SELF']);
 	if($filename=="index.php" || $filename=="login.php" || $filename=="signup.php")
 	{
-		if(isset($_SESSION['Userid']) || isset($_SESSION['Adminid']))
+		if(isset($_SESSION['Studentid']) || isset($_SESSION['Adminid']) || isset($_SESSION['Facultyid']))
 		{
 			session_destroy();
 			header("location:$filename");
 		}
 	}
-	if(isset($_SESSION['Userid']))
+	if(isset($_SESSION['Studentid']))
 	{
-		if($filename=="profile.php" || $filename=="contact.php" || $filename="login.php")
+		if($filename=="student_profile.php" || $filename=="contact.php")
+		{
+			return;
+		}
+		else{
+			session_destroy();
+			header("location:unreachable.php");
+		}
+	}
+	if(isset($_SESSION['Facultyid']))
+	{
+		if($filename=="faculty_panel.php" || $filename=="contact.php")
 		{
 			return;
 		}
@@ -59,7 +70,7 @@ function check_pages()
 	}
 	if(isset($_SESSION['Adminid']))
 	{
-		if($filename=="admin.php" || $filename=="admin_panel.php")
+		if($filename=="admin_panel.php" || $filename=="admin_post_test.php")
 		{
 			return;
 		}
