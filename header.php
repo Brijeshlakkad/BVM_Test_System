@@ -1,5 +1,6 @@
 <?php
 include_once("functions.php");
+include_once("to_show_php_error.php");
 check_pages();
 ?>
 <!DOCTYPE html>
@@ -18,7 +19,7 @@ check_pages();
 		<script src="js/modernizr.custom.js"></script>
 
 		<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-		<link href="css/custom2.css" rel="stylesheet" media="screen">
+		<link href="css/custom3.css" rel="stylesheet" media="screen">
 		<link rel="stylesheet" href="css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="css/please_wait.css" />
 		<script src="js/jquery.min.js"></script>
@@ -40,6 +41,7 @@ check_pages();
 								</li>
 								<li><a class="gn-icon glyphicon-envelope">Contact us</a></li>
 								<li><a class="gn-icon gn-icon-help">Help</a></li>
+								<li><a class="gn-icon glyphicon-log-out" href="logout.php">Logout</a></li>
 								<li>
 									<a class="gn-icon gn-icon-archive">Archives</a>
 									<ul class="gn-submenu">
@@ -53,10 +55,36 @@ check_pages();
 					</nav>
 				</li>
 				<li></li>
-				<li></li>
+
+				<?php
+				if(is_student_logged_in())
+				{
+					?>
+					<li class='brij' id='<?php echo $_SESSION['Studentid']; ?>' style="font-size:25px;margin-left:5px;margin-right:15px;border:none;"><span style="color:rgba(8,22,83,0.3)">BVM</span> <b style="color:rgba(8,22,83,1)">Test System</b></li>
+					<?php
+				}
+				else if(is_faculty_logged_in())
+				{
+					?>
+					<li class='brij' id='<?php echo $_SESSION['Facultyid']; ?>' style="font-size:25px;margin-left:5px;margin-right:15px;border:none;"><span style="color:rgba(8,22,83,0.3)">BVM</span> <b style="color:rgba(8,22,83,1)">Test System</b></li>
+					<li style="float:right"><a href="faculty_post_test.php">Post a test</a></li>
+					<li style="float:right"><a href="view_tests.php">See Tests</a></li>
+					<?php
+				}
+				else if(is_admin_logged_in())
+				{?>
+					<li class='brij' id='<?php echo $_SESSION['Adminid']; ?>' style="font-size:25px;margin-left:5px;margin-right:15px;border:none;"><span style="color:rgba(8,22,83,0.3)">BVM</span> <b style="color:rgba(8,22,83,1)">Test System</b></li>
+					<?php
+				}else{
+				?>
 				<li style="float:right"><a href="login.php">Login</a></li>
+				<?php
+				}
+				?>
 			</ul>
+
 		</div>
+		<script src="js/get_tests.js"></script>
 		<script src="js/classie.js"></script>
 		<script src="js/gnmenu.js"></script>
 		<script>

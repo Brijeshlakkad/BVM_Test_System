@@ -8,7 +8,7 @@ if($type=="f_")
 	$redirect_page="faculty_panel.php";
 	$session_name="Facultyid";
 }
-else {
+else if($type=="student_") {
 	$table_name="students";
 	$redirect_page="student_profile.php";
 	$session_name="Studentid";
@@ -23,14 +23,12 @@ $r=mysqli_num_rows($result);
 $row=mysqli_fetch_assoc($result);
 if($r==1)
 {
-	$_SESSION[$session_name.""]=$row[$email_field.""];
+	$_SESSION[$session_name]=$row[$type."id"];
 	echo "11".$redirect_page;
-	return;
 }
 else
 {
 	echo "0";
-	return;
 }
 
 ?>

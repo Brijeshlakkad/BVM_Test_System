@@ -8,14 +8,25 @@ function protect_anything($str)
 }
 function check_session()
 {
-	if((!isset($_SESSION['Studentid'])) && (!isset($_SESSION['Adminid'])) && (!isset($_SESSION['Facultid'])))
+	if((!isset($_SESSION['Studentid'])) && (!isset($_SESSION['Adminid'])) && (!isset($_SESSION['Facultyid'])))
 	{
 		header("Location:index.php");
 	}
 }
-function is_logged_in()
+function is_student_logged_in()
 {
 	if(isset($_SESSION['Studentid']))
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+function is_faculty_logged_in()
+{
+	if(isset($_SESSION['Facultyid']))
 	{
 		return true;
 	}
@@ -59,7 +70,7 @@ function check_pages()
 	}
 	if(isset($_SESSION['Facultyid']))
 	{
-		if($filename=="faculty_panel.php" || $filename=="contact.php")
+		if($filename=="faculty_panel.php" || $filename=="contact.php" || $filename=="faculty_post_test.php" || $filename=="view_tests.php" || $filename=="edit_test.php" || $filename=="edit_question.php")
 		{
 			return;
 		}

@@ -85,6 +85,7 @@ include_once("links.php");
 	$("#show_pass").password('toggle');
 </script>
 <script>
+$("select[name='l_type']").focus();
 	var myApp = angular.module("myapp", []);
 	myApp.controller("BrijController", function($scope,$http) {
 				$scope.l_type="f_";
