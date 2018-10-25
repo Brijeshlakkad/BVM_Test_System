@@ -1,34 +1,8 @@
 <?php
-include_once("functions.php");
 include_once("to_show_php_error.php");
-check_pages();
+include_once("links.php");
 ?>
-<!DOCTYPE html>
-<html lang="en" class="no-js">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>BVM Test System</title>
-		<meta name="description" content="" />
-		<meta name="keywords" content="" />
-		<meta name="author" content="Brijesh Lakkad" />
-		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
-		<link rel="stylesheet" type="text/css" href="css/gn_demo.css" />
-		<link rel="stylesheet" type="text/css" href="css/component.css" />
-		<script src="js/modernizr.custom.js"></script>
-
-		<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-		<link href="css/custom3.css" rel="stylesheet" media="screen">
-		<link rel="stylesheet" href="css/font-awesome.min.css">
-		<link rel="stylesheet" type="text/css" href="css/please_wait.css" />
-		<script src="js/jquery.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/angular.js"></script>
-		<script type="text/javascript" src="js/bootstrap-show-password.min.js"></script>
-	</head>
-	<body>
-		<div class="gn_container">
+<div class="gn_container">
 			<ul id="gn-menu" class="gn-menu-main">
 				<li class="gn-trigger">
 					<a class="gn-icon gn-icon-menu"><span>Menu</span></a>
@@ -36,8 +10,7 @@ check_pages();
 						<div class="gn-scroller">
 							<ul class="gn-menu">
 								<li class="gn-search-item">
-									<input placeholder="Search" type="search" class="gn-search">
-									<a class="gn-icon gn-icon-search"><span>Search</span></a>
+									<a href="#search" class="gn-icon glyphicon-search">Search</a>
 								</li>
 								<li><a class="gn-icon glyphicon-envelope">Contact us</a></li>
 								<li><a class="gn-icon gn-icon-help">Help</a></li>
@@ -89,10 +62,17 @@ check_pages();
 		<script src="js/gnmenu.js"></script>
 		<script>
 			new gnMenu( document.getElementById( 'gn-menu' ) );
-$body = $("body");
-$(document).on({
-    ajaxStart: function() { $body.addClass("loading");    },
-     ajaxStop: function() { $body.removeClass("loading"); }
-});
+			$body = $("body");
+			$(document).on({
+			    ajaxStart: function() { $body.addClass("loading");    },
+			     ajaxStop: function() { $body.removeClass("loading"); }
+			});
 </script>
 <div class="please_wait_modal"></div>
+<div id="search">
+    <button type="button" class="close">×</button>
+    <form>
+        <input type="search" value="" placeholder="type test name here.." />
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+</div>
