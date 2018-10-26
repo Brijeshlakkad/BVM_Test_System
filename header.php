@@ -2,66 +2,81 @@
 include_once("to_show_php_error.php");
 include_once("links.php");
 ?>
-<div class="gn_container">
-			<ul id="gn-menu" class="gn-menu-main">
-				<li class="gn-trigger">
-					<a class="gn-icon gn-icon-menu"><span>Menu</span></a>
-					<nav class="gn-menu-wrapper">
-						<div class="gn-scroller">
-							<ul class="gn-menu">
-								<li class="gn-search-item">
-									<a href="#search" class="gn-icon glyphicon-search">Search</a>
-								</li>
-								<li><a class="gn-icon glyphicon-envelope">Contact us</a></li>
-								<li><a class="gn-icon gn-icon-help">Help</a></li>
-								<li><a class="gn-icon glyphicon-log-out" href="logout.php">Logout</a></li>
-								<li>
-									<a class="gn-icon gn-icon-archive">Archives</a>
-									<ul class="gn-submenu">
-										<li><a class="gn-icon gn-icon-article">A1</a></li>
-										<li><a class="gn-icon gn-icon-pictures">A2</a></li>
-										<li><a class="gn-icon gn-icon-videos">A3</a></li>
-									</ul>
-								</li>
-							</ul>
-						</div>
-					</nav>
-				</li>
-				<li></li>
+<div class="container-fluid">
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+								<?php
+								if(is_student_logged_in())
+								{
+									?>
+									<a class='brij navbar-brand' id='<?php echo $_SESSION['Studentid']; ?>' style="font-size:25px;"><span style="color:rgba(8,22,83,0.3)">BVM</span> <b style="color:rgba(8,22,83,1)">Test System</b></a>
+									<?php
+								}
+								else if(is_faculty_logged_in())
+								{
+								  ?>
+								  <a class='brij navbar-brand' id='<?php echo $_SESSION['Facultyid']; ?>' style="font-size:25px;"><span style="color:rgba(8,22,83,0.3)">BVM</span> <b style="color:rgba(8,22,83,1)">Test System</b></a>
+								  <?php
+								}
+								else if(is_admin_logged_in())
+								{?>
+								  <a class='brij navbar-brand' id='<?php echo $_SESSION['Adminid']; ?>' style="font-size:25px;"><span style="color:rgba(8,22,83,0.3)">BVM</span> <b style="color:rgba(8,22,83,1)">Test System</b></a>
+								  <?php
+								}else{
+								?>
+								<?php
+								}
+								?>
+            </div>
 
-				<?php
-				if(is_student_logged_in())
-				{
-					?>
-					<li class='brij' id='<?php echo $_SESSION['Studentid']; ?>' style="font-size:25px;margin-left:5px;margin-right:15px;border:none;"><span style="color:rgba(8,22,83,0.3)">BVM</span> <b style="color:rgba(8,22,83,1)">Test System</b></li>
-					<?php
-				}
-				else if(is_faculty_logged_in())
-				{
-					?>
-					<li class='brij' id='<?php echo $_SESSION['Facultyid']; ?>' style="font-size:25px;margin-left:5px;margin-right:15px;border:none;"><span style="color:rgba(8,22,83,0.3)">BVM</span> <b style="color:rgba(8,22,83,1)">Test System</b></li>
-					<li style="float:right"><a href="faculty_post_test.php">Post a test</a></li>
-					<li style="float:right"><a href="view_tests.php">See Tests</a></li>
-					<?php
-				}
-				else if(is_admin_logged_in())
-				{?>
-					<li class='brij' id='<?php echo $_SESSION['Adminid']; ?>' style="font-size:25px;margin-left:5px;margin-right:15px;border:none;"><span style="color:rgba(8,22,83,0.3)">BVM</span> <b style="color:rgba(8,22,83,1)">Test System</b></li>
-					<?php
-				}else{
-				?>
-				<li style="float:right"><a href="login.php">Login</a></li>
-				<?php
-				}
-				?>
-			</ul>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Search a Test</a></li>
+                    <li><a href="#">XYZ</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Settings <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="logout.php">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+								<?php
+								if(is_student_logged_in())
+								{
+									?>
+									<ul class="nav navbar-nav navbar-right">
+	                    <li><a href="#search">Search</a></li>
+	                </ul>
+									<?php
+								}
+								else if(is_faculty_logged_in())
+								{
+									?>
+									<a style="float:right"><a href="faculty_post_test.php">Post a test</a></a>
+								  <a style="float:right"><a href="view_tests.php">See Tests</a></a>
+									<?php
+								}
+								else if(is_admin_logged_in())
+								{
+								}else{
 
-		</div>
-		<script src="js/get_tests.js"></script>
-		<script src="js/classie.js"></script>
-		<script src="js/gnmenu.js"></script>
+								}
+								?>
+
+            </div>
+        </div>
+    </nav>
+</div>
 		<script>
-			new gnMenu( document.getElementById( 'gn-menu' ) );
 			$body = $("body");
 			$(document).on({
 			    ajaxStart: function() { $body.addClass("loading");    },
@@ -69,10 +84,3 @@ include_once("links.php");
 			});
 </script>
 <div class="please_wait_modal"></div>
-<div id="search">
-    <button type="button" class="close">×</button>
-    <form>
-        <input type="search" value="" placeholder="type test name here.." />
-        <button type="submit" class="btn btn-primary">Search</button>
-    </form>
-</div>

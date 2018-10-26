@@ -5,18 +5,18 @@ import os
 import pymysql
 
 class test:
-	global divid,title,course,postedby,sub_string,num_que,time
+	global test_id,title,course,postedby,sub_string,total_num,time
 	def test_details(self,conn,cursor,testid):
 		sql_test="SELECT test_id,test_title,test_course,test_subjects,test_postedby,test_total_num,test_time FROM tests where test_id='%s'"%(testid)
 		try:
 			cursor.execute(sql_test)
 			result_of_test = cursor.fetchone()
-			self.divid=result_of_test[0]
+			self.test_id=result_of_test[0]
 			self.title=result_of_test[1]
 			self.course=result_of_test[2]
 			str_sub=result_of_test[3]
 			self.postedby=result_of_test[4]
-			self.num_que=result_of_test[5]
+			self.total_num=result_of_test[5]
 			self.time=result_of_test[6]
 			if self.postedby=="-99":
 				self.postedby="CareerHub"

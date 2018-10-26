@@ -12,10 +12,6 @@ check_pages();
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
 		<meta name="author" content="Brijesh Lakkad" />
-		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
-		<link rel="stylesheet" type="text/css" href="css/gn_demo.css" />
-		<link rel="stylesheet" type="text/css" href="css/component.css" />
-		<script src="js/modernizr.custom.js"></script>
 		<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
 		<link href="css/custom3.css" rel="stylesheet" media="screen">
 		<link rel="stylesheet" href="css/font-awesome.min.css">
