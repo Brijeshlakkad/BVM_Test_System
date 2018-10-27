@@ -48,7 +48,7 @@ function is_admin_logged_in()
 }
 function check_pages()
 {
-	$filename=basename($_SERVER['PHP_SELF']);
+	/*$filename=basename($_SERVER['PHP_SELF']);
 	if($filename=="index.php" || $filename=="login.php" || $filename=="signup.php")
 	{
 		if(isset($_SESSION['Studentid']) || isset($_SESSION['Adminid']) || isset($_SESSION['Facultyid']))
@@ -89,6 +89,6 @@ function check_pages()
 			session_destroy();
 			header("location:unreachable.php");
 		}
-	}
+	}*/
 }
 ?>

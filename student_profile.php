@@ -9,7 +9,7 @@ check_session();
   <div id="search">
       <button type="button" class="close">×</button>
       <form>
-          <input type="search" placeholder="type test name here.." name="entered_test_name" ng-model="entered_test_name" id="entered_test_name" />
+          <input type="search" placeholder="type test name here.." autocomplete="off" name="entered_test_name" ng-model="entered_test_name" id="entered_test_name" />
           <button type="submit" class="btn btn-primary" id="search_submit" ng-click="update_filter_test(entered_test_name)">Search</button>
       </form>
   </div>

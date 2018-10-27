@@ -32,27 +32,26 @@ include_once("links.php");
 								  <?php
 								}else{
 								?>
+									<a class='brij navbar-brand' id='<?php echo $_SESSION['Adminid']; ?>' style="font-size:25px;"><span style="color:rgba(8,22,83,0.3)">BVM</span> <b style="color:rgba(8,22,83,1)">Test System</b></a>
 								<?php
 								}
 								?>
             </div>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Search a Test</a></li>
-                    <li><a href="#">XYZ</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Settings <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="logout.php">Logout</a></li>
-                        </ul>
-                    </li>
-                </ul>
 								<?php
 								if(is_student_logged_in())
 								{
 									?>
+									<ul class="nav navbar-nav">
+	                    <li><a href="student_profile.php">Profile</a></li>
+	                    <li class="dropdown">
+	                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Settings <b class="caret"></b></a>
+	                        <ul class="dropdown-menu">
+	                            <li><a href="logout.php">Logout</a></li>
+	                        </ul>
+	                    </li>
+	                </ul>
 									<ul class="nav navbar-nav navbar-right">
 	                    <li><a href="#search">Search</a></li>
 	                </ul>
@@ -61,6 +60,15 @@ include_once("links.php");
 								else if(is_faculty_logged_in())
 								{
 									?>
+									<ul class="nav navbar-nav">
+	                    <li><a href="#">XYZ</a></li>
+	                    <li class="dropdown">
+	                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Settings <b class="caret"></b></a>
+	                        <ul class="dropdown-menu">
+	                            <li><a href="logout.php">Logout</a></li>
+	                        </ul>
+	                    </li>
+	                </ul>
 									<a style="float:right"><a href="faculty_post_test.php">Post a test</a></a>
 								  <a style="float:right"><a href="view_tests.php">See Tests</a></a>
 									<?php
@@ -68,7 +76,14 @@ include_once("links.php");
 								else if(is_admin_logged_in())
 								{
 								}else{
-
+									?>
+									<ul class="nav navbar-nav">
+	                    <li><a href="#">XYZ</a></li>
+	                </ul>
+									<ul class="nav navbar-nav navbar-right">
+	                    <li><a href="login.php">Login</a></li>
+	                </ul>
+									<?php
 								}
 								?>
 

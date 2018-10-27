@@ -13,5 +13,4 @@ $(function () {
     $("#search_submit").click(function(){
       $("#search button.close").click();
     });
-
 });
