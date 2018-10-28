@@ -3,7 +3,7 @@ include_once("config.php");
 include_once('header.php');
 check_session();
 ?>
-<div class="container">
+<div class="container" ng-controller="SearchController">
 <div class="row" id="student_div" ng-bind-html="student_div" >
 
 </div>
