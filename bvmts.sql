@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 09, 2018 at 07:59 PM
+-- Generation Time: Oct 28, 2018 at 07:32 AM
 -- Server version: 5.6.38
 -- PHP Version: 7.2.1
 
@@ -30,10 +30,17 @@ CREATE TABLE `faculty` (
   `f_id` int(100) NOT NULL,
   `f_fname` varchar(30) NOT NULL,
   `f_lname` varchar(30) NOT NULL,
-  `f_email` varchar(10) NOT NULL,
+  `f_email` varchar(40) NOT NULL,
   `f_mobile_no` varchar(10) NOT NULL,
   `f_password` varchar(16) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `faculty`
+--
+
+INSERT INTO `faculty` (`f_id`, `f_fname`, `f_lname`, `f_email`, `f_mobile_no`, `f_password`) VALUES
+(1, 'Brijesh', 'Lakkad', 'lakkadbrijesh@gmail.com', '7046167267', '123456bB');
 
 -- --------------------------------------------------------
 
@@ -53,6 +60,14 @@ CREATE TABLE `questions` (
   `que_time` datetime DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `questions`
+--
+
+INSERT INTO `questions` (`que_id`, `question`, `a1`, `a2`, `a3`, `a4`, `test_id`, `que_ans`, `que_time`) VALUES
+(5, 'question', 'a1', 'a2', 'a3', 'a4', 31, '3', '2018-10-12 02:16:00'),
+(6, 'question123', 'a1', 'a2', 'a3', 'a4', 32, '3', '2018-10-12 02:16:00');
+
 -- --------------------------------------------------------
 
 --
@@ -65,8 +80,10 @@ CREATE TABLE `results` (
   `test_id` int(100) NOT NULL,
   `result_right` varchar(100) NOT NULL,
   `result_attended` varchar(100) NOT NULL,
-  `result_total` varchar(10) NOT NULL,
+  `result_total` varchar(100) DEFAULT NULL,
   `result_left_time` varchar(100) NOT NULL,
+  `result_total_time` varchar(100) DEFAULT NULL,
+  `result_attempt` varchar(10) DEFAULT '0',
   `result_updated_time` datetime DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -86,6 +103,13 @@ CREATE TABLE `students` (
   `student_password` varchar(16) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `students`
+--
+
+INSERT INTO `students` (`student_id`, `student_idno`, `student_fname`, `student_lname`, `student_email`, `student_mobile_no`, `student_password`) VALUES
+(1, '15IT051', 'Brijesh', 'Lakkad', 'brijeshlakkad22@gmail.com', '7046167267', '123456bB');
+
 -- --------------------------------------------------------
 
 --
@@ -94,7 +118,7 @@ CREATE TABLE `students` (
 
 CREATE TABLE `tests` (
   `test_id` int(100) NOT NULL,
-  `test_title` varchar(50) NOT NULL,
+  `test_title` varchar(20) NOT NULL,
   `test_course` varchar(50) NOT NULL,
   `test_subjects` varchar(100) NOT NULL,
   `test_total_num` varchar(50) DEFAULT '0',
@@ -102,6 +126,14 @@ CREATE TABLE `tests` (
   `test_time` datetime DEFAULT CURRENT_TIMESTAMP,
   `test_duration` varchar(100) DEFAULT '-99'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tests`
+--
+
+INSERT INTO `tests` (`test_id`, `test_title`, `test_course`, `test_subjects`, `test_total_num`, `test_postedby`, `test_time`, `test_duration`) VALUES
+(31, 'Test5', 'Information Technology', 'PHP | AJAX', '1', '1', '2018-10-12 01:41:26', '3600'),
+(32, 'Test 3', 'Information Technology', 'PHP | AJAX', '0', '1', '2018-10-12 01:43:15', '3600');
 
 -- --------------------------------------------------------
 
@@ -128,7 +160,8 @@ CREATE TABLE `visited_test` (
 ALTER TABLE `faculty`
   ADD PRIMARY KEY (`f_id`),
   ADD UNIQUE KEY `f_email` (`f_email`),
-  ADD UNIQUE KEY `f_mobile_no` (`f_mobile_no`);
+  ADD UNIQUE KEY `f_mobile_no` (`f_mobile_no`),
+  ADD UNIQUE KEY `f_email_2` (`f_email`);
 
 --
 -- Indexes for table `questions`
@@ -158,7 +191,8 @@ ALTER TABLE `students`
 -- Indexes for table `tests`
 --
 ALTER TABLE `tests`
-  ADD PRIMARY KEY (`test_id`);
+  ADD PRIMARY KEY (`test_id`),
+  ADD UNIQUE KEY `test_title` (`test_title`);
 
 --
 -- Indexes for table `visited_test`
@@ -176,37 +210,37 @@ ALTER TABLE `visited_test`
 -- AUTO_INCREMENT for table `faculty`
 --
 ALTER TABLE `faculty`
-  MODIFY `f_id` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `f_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `questions`
 --
 ALTER TABLE `questions`
-  MODIFY `que_id` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `que_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `results`
 --
 ALTER TABLE `results`
-  MODIFY `result_id` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `result_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `student_id` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `student_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tests`
 --
 ALTER TABLE `tests`
-  MODIFY `test_id` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `test_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `visited_test`
 --
 ALTER TABLE `visited_test`
-  MODIFY `vis_id` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `vis_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Constraints for dumped tables
