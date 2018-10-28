@@ -1,0 +1,62 @@
+#!/usr/bin/python
+import cgi, cgitb
+import sys
+import os
+import pymysql
+import config
+import test_details
+from no_found import no_found
+def reload_certificate(c_id):
+	conn,cursor=config.connect_to_database()
+	sql="SELECT result_id,result_updated_time,test_id,result_right,result_total,result_attended FROM results where student_id='%s' ORDER BY result_updated_time DESC"%(c_id)
+	try:
+		cursor.execute(sql)
+		results = cursor.fetchall()
+		rownum=cursor.rowcount
+		if rownum==0:
+			print(no_found("Certificates(0)"))
+		else:
+			for row in results:
+				divid=row[0]
+				time=row[1]
+				datetime=time.strftime('%H : %M')
+				testid=row[2]
+				right=row[3]
+				total_que=row[4]
+				total_que=int(total_que)
+				right=int(right)
+				right_perc=((right)/total_que)*100
+				solved=row[5]
+				solved=int(solved)
+				solved_perc=(solved/total_que)*100
+				timedate=row[1]
+				obj=test_details.Test()
+				obj.test_details(conn,cursor,testid)
+				title=obj.test_title
+				course=obj.test_course
+				postedby=obj.test_postedby
+				sub_string=obj.test_sub_string
+				solved_width="width:%s%%"%solved_perc
+				right_width="width:%s%%"%right_perc
+				formid="Form%s"%divid
+				process_solved="""<div class="progress"><div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="%s" aria-valuemin="0" aria-valuemax="100" style="%s">%.2f%%</div></div>"""%(solved_perc,solved_width,solved_perc)
+				process_right="""<div class="progress"><div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="%s" aria-valuemin="0" aria-valuemax="100" style="%s">%.2f%%</div></div>"""%(right_perc,right_width,right_perc)
+				print("""<br/><div id="%s" class="alert alert-info" style="padding:30px;"><div class="row"><div class="col-md-8"><h3><span class="glyphicon glyphicon-certificate"></span> Certificate <small>approved by %s</small></h3></div><div class="col-md-4">%s</div></div><div class="row"><div class="col-lg-6"><table class="myTable"><tr><td>Test name</td><td>%s</td></tr><tr><td>Course</td><td>%s</td></tr><tr><td>Subjects</td><td>%s</td></tr></table></div><div class="col-lg-6"><div class="row">Right Questions :%s</div><div class="row">Total attained Questions :%s</div></div></div><br/><div class="row"><form method="post" name="%s" id="%s" action="take_test.php"><input type='hidden' name="test_id" value="%s" /><input type='hidden' name="retest" value="01" /><button type="button" id="get_test_btn" onclick="get_test_fun('%s')" class="btn btn-primary" >Get again!</button></form></div></div><hr/>"""%(divid,postedby,timedate,title,course,sub_string,process_right,process_solved,formid,formid,testid,formid))
+	except:
+		conn.rollback()
+		print("Server is taking load...")
+	conn.close()
+
+def certificate_total_count(c_id):
+	conn,cursor=config.connect_to_database()
+	sql="SELECT c_id FROM results where student_id='%s'"%(c_id)
+	try:
+		cursor.execute(sql)
+		results=cursor.rowcount
+		rownum="%s"%results
+		print(rownum)
+		conn.commit()
+	except:
+		conn.rollback()
+		print("0")
+	conn.close()

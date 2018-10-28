@@ -4,7 +4,7 @@ $(document).ready(function () {
 		var totaltestnum = $("#total_num");
 		var testRefresh = $("#test_refresh");
 		var retrieveTests=function() {
-			var parid=$("li.brij").attr('id');
+			var parid=$("a.brij").attr('id');
 			$.ajax({
 				type: 'POST',
 				url: 'submit_test_and_questions.py',
@@ -20,7 +20,7 @@ $(document).ready(function () {
 
 		var total_test_num=function()
 		{
-			var parid=$("li.brij").attr('id');
+			var parid=$("a.brij").attr('id');
 			$.ajax({
 				type: 'POST',
 				url: 'submit_test_and_questions.py',

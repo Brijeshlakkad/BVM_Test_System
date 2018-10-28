@@ -5,6 +5,7 @@ from security import *
 import update_filter_test
 import test_running
 from user_details import *
+import student_reload_certificates
 print("Content-type:text/html;Content-type: image/jpeg\r\n\r\n")
 cgitb.enable(display=0, logdir="/path/to/logdir")
 form = cgi.FieldStorage()
@@ -31,3 +32,10 @@ if form.getvalue('get_student_any_value_by_id') and form.getvalue('userid'):
     userid = protect_data(form.getvalue('userid'))
     response=get_student_any_value_by_id(userid,field)
     print("%s"%response.strip())
+if form.getvalue('certificate_reload'):
+	c_id9 = protect_data(form.getvalue('certificate_reload'))
+	student_reload_certificates.reload_certificate(c_id9)
+
+if form.getvalue('certificate_total'):
+	c_id10 = protect_data(form.getvalue('certificate_total'))
+	student_reload_certificates.certificate_total_count(c_id10)

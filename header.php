@@ -45,6 +45,7 @@ include_once("links.php");
 									?>
 									<ul class="nav navbar-nav">
 	                    <li><a href="student_profile.php">Profile</a></li>
+                      <li><a href="student_collected_certificates.php">Certificates</a></li>
 	                    <li class="dropdown">
 	                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Settings <b class="caret"></b></a>
 	                        <ul class="dropdown-menu">

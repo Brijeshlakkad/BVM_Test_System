@@ -5,7 +5,6 @@ import os
 import pymysql
 import config
 class Test:
-	global test_id,title,course,postedby,sub_string,total_num,time
 	def test_details(self,conn,cursor,testid):
 		sql_test="SELECT test_id,test_title,test_course,test_subjects,test_postedby,test_total_num,test_time FROM tests where test_id='%s'"%(testid)
 		try:
