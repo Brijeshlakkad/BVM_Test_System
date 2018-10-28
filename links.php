@@ -22,4 +22,4 @@ check_pages();
 		<script src="js/search_bar.js"></script>
 		<link rel="stylesheet" type="text/css" href="css/search_bar.css" />
 	</head>
-	<body ng-app="myapp">
+<body ng-app="myapp">

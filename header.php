@@ -92,11 +92,12 @@ include_once("links.php");
         </div>
     </nav>
 </div>
-		<script>
-			$body = $("body");
-			$(document).on({
-			    ajaxStart: function() { $body.addClass("loading");    },
-			     ajaxStop: function() { $body.removeClass("loading"); }
-			});
-</script>
-<div class="please_wait_modal"></div>
+<div ng-controller="SearchController" class="login_block" style="margin-top:80px;">
+  <div id="search">
+      <button type="button" class="close">×</button>
+      <form>
+          <input type="search" placeholder="type test name here.." autocomplete="off" name="entered_test_name" ng-model="entered_test_name" id="entered_test_name" />
+          <button type="submit" class="btn btn-primary" id="search_submit" ng-click="update_filter_test(entered_test_name)">Search</button>
+      </form>
+  </div>
+</div>

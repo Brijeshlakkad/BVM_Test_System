@@ -34,13 +34,9 @@ check_session();
  </div>
 </div>
 <div class="please_wait_modal"></div>
+<script src="js/please_wait_modal.js"></script>
 <script>
 var formid="-99";
-$body=$("body");
-$(document).on({
-    ajaxStart: function() { $body.addClass("loading");    },
-     ajaxStop: function() { $body.removeClass("loading"); }
-});
 function get_test_fun(form_id)
 {
 	formid=form_id;
