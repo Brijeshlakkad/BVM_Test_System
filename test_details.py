@@ -32,9 +32,10 @@ class Test:
 						self.test_sub_string+=", "+i.strip()
 					j+=1
 				self.test_sub_string+=""
+			return 11
 		except:
 			conn.rollback()
-			print("Server is taking load...")
+			return -99
 	def test_exists(self,conn,cursor,testid):
 		sql_test="SELECT * FROM tests where test_id='%s'"%(testid)
 		try:

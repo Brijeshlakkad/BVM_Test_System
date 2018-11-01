@@ -62,7 +62,9 @@ include_once("links.php");
 								{
 									?>
 									<ul class="nav navbar-nav">
-	                    <li><a href="#">XYZ</a></li>
+                      <li><a href="faculty_post_test.php">Post a test</a></li>
+                      <li><a href="view_tests.php">See Tests</a></li>
+                      <li><a href="get_tests_for_results.php">See Test Results</a></li>
 	                    <li class="dropdown">
 	                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Settings <b class="caret"></b></a>
 	                        <ul class="dropdown-menu">
@@ -70,8 +72,6 @@ include_once("links.php");
 	                        </ul>
 	                    </li>
 	                </ul>
-									<a style="float:right"><a href="faculty_post_test.php">Post a test</a></a>
-								  <a style="float:right"><a href="view_tests.php">See Tests</a></a>
 									<?php
 								}
 								else if(is_admin_logged_in())
@@ -91,13 +91,4 @@ include_once("links.php");
             </div>
         </div>
     </nav>
-</div>
-<div ng-controller="SearchController" class="login_block" style="margin-top:80px;">
-  <div id="search">
-      <button type="button" class="close">×</button>
-      <form>
-          <input type="search" placeholder="type test name here.." autocomplete="off" name="entered_test_name" ng-model="entered_test_name" id="entered_test_name" />
-          <button type="submit" class="btn btn-primary" id="search_submit" ng-click="update_filter_test(entered_test_name)">Search</button>
-      </form>
-  </div>
 </div>

@@ -28,7 +28,7 @@ if(isset($_POST['test_id']))
 		$right=$row[0];
 
 ?>
-<div class="container-fluid well" ng-controller="BrijController">
+<div class="container-fluid well" ng-app="myapp" ng-controller="BrijController">
 	<div class="row">
 		<div id="caption" class="row"><div class="col-lg-offset-2 col-lg-8 col-lg-offset-2"><h3><strong>Test : </strong><?php echo $title; ?></h3><small><b>(by {{student_fname}} {{student_lname}})</b></small></div></div>
 		<div id="show_result" class="row">
@@ -37,7 +37,7 @@ if(isset($_POST['test_id']))
 				<tr>
 					<th class="success">Right</th>
 					<th class="danger">Wrong</th>
-					<th class="info">Attained</th>
+					<th class="info">Attended</th>
 					<th class="warning">Remained</th>
 					<th class="active">Total Questions</th>
 				</tr>

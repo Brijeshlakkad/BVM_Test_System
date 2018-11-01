@@ -17,7 +17,7 @@ input.ng-touched.ng-valid {
 }
 </style>
 <div class="container-fluid well my_well_2" id="show_here">
-<div ng-app="myapp" ng-controller="BrijController">
+<div ng-app="myapp" ng-controller="testPostController">
 <div class="row" align="center" id="entry_panel" ng-show="entry_panel">
 <div class="col-lg-offset-2 col-lg-8 col-lg-offset-2">
 	<label><h3>Add a Test</h3></label>
@@ -213,7 +213,7 @@ $(document).ready(function(){
 	$('[data-toggle="tooltip"]').tooltip();
 });
 	var myApp = angular.module("myapp",[]);
-	myApp.controller("BrijController",function($scope,$http,$timeout){
+	myApp.controller("testPostController",function($scope,$http,$timeout){
 		$scope.entry_panel = true;
 		$scope.questions_panel = false;
 		$scope.t_time_1="00";
